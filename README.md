@@ -3,7 +3,6 @@
 ![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/ec61088b-8750-414b-a992-7315aa10e121)
 ![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/dad510ee-89fe-4036-8a16-772e6460c442)
 ![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/263760c5-beae-43fc-9fb1-80c9992543dd)
-![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/f03fce7b-4fae-4cc2-b0ac-7349ef0affe1)
 
 ## About 
 Taskify is a MERN application that helps organizations manage tasks and distribute them among employees. It also has a real-time commenting system below each task. This allows team members to collaborate and communicate effectively on tasks, which can lead to increased productivity and efficiency.
@@ -22,9 +21,11 @@ Taskify is a MERN application that helps organizations manage tasks and distribu
 - MongoDB Atlas
 - ReactJS
 - Redux (check out the redux and local storage implemented application:https://taskify-simpler-way-to-manage-tasks.vercel.app/dashboard)
+- MaterialUI
+- Tailwindcss
 - Realtime Cloud Firestore for storing chats
 - firebase authentication
-- Vercel for frontend deployment and render for backend deployment
+- Vercel for frontend deployment and Render for backend deployment
 
 # Features
 - Simple landing page, Authentication with firebase(Registration,login,logout)
