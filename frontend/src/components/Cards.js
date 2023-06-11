@@ -123,8 +123,8 @@ const Cards = ({createdAt,setTaskdata,tmark,tid,ttitle,tdesc,tdate,tcat}) => {
   
   return (<>
         
-        <Box className="border-4" sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent>
+        <Box className="border-2" sx={{ display: 'flex', flexDirection: 'column' }}>
+        <CardContent maxWidth="xl">
           <Box className="flex justify-between" >
           <Box sx={{display:"flex",flexWrap:"wrap"}}>
           <Typography sx={{mr:3}} mb={2} component="div" variant="h5">

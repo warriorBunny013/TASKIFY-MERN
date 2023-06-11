@@ -13,6 +13,7 @@ import Landing from './components/LandingPage';
 import Overview from './components/Overview';
 import { useEffect } from 'react';
 import GroupChat from './components/GroupChat'
+import Teams from './components/Teams';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -72,9 +73,9 @@ export default function App() {
            <Routes>
           <Route exact path="/" element={<Landing/>}/>
           {user.user && <Route path="/dashboard" element={<Overview/>}/>}
-          {user.user && <Route path="/dashboard/tasks" element={<> <Header/><Main/></>}/>}
+          {user.user && <Route path="/dashboard/tasks" element={<> <Header/><Container maxWidth="md"><Main/></Container></>}/>}
           {user.user &&<Route path="/dashboard/chats" element={<> <Header/><Container maxWidth="md"><GroupChat/></Container></>}/>}
-          {user.user && <Route  path="/dashboard/teams" element={<> <Header/><Container maxWidth="md">Team members</Container></>}/>}
+          {user.user && <Route  path="/dashboard/teams" element={<> <Header/><Container maxWidth="md"><Teams/></Container></>}/>}
           <Route  path="/login" element={<Form/>}/>
           <Route  path="/register" element={<Signup/>}/>
           <Route  path="/*" element={<h1>PAGE NOT FOUND</h1>}/>

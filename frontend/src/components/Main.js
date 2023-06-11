@@ -71,7 +71,7 @@ function Main() {
   }
   return (
     <>
-         <Container maxWidth="md">
+         <Box>
         <Box sx={{display:"flex",justifyContent: 'space-between',m:'2rem'}}>
         <Box sx={{ width: '100%', typography: 'body1' }}>
       <TabContext value={value}>
@@ -101,7 +101,7 @@ function Main() {
         
         </Box>
         
-      </Container>
+      </Box>
       <Modal
         open={open}
         onClose={handleClose}

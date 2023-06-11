@@ -7,7 +7,7 @@ dotenv.config();
 const app=express();
 //middlewares
 app.use(express.json());
-// app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:false}))
 app.use(cors());
 
 //mongodb connection
@@ -27,7 +27,8 @@ mongoose.connection.on("disconnected",()=>{
 
 app.use("/api",routes);
 
-const PORT=8800;
+const PORT=process.env.PORT || 8800;
+
 app.listen(PORT,()=>{
     connection();
     console.log(`Sever is connected at http://localhost:${PORT}`);
