@@ -30,6 +30,9 @@ mongoose.connection.on("disconnected",()=>{
 
 
 app.use("/api",routes);
+app.get("/",(req,res)=>{
+  res.json("hello ni");
+})
 
 const PORT=process.env.PORT || 8800;
 
