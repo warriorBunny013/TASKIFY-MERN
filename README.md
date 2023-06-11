@@ -1,6 +1,6 @@
 # TASKIFY
 ![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/5e7ab201-ac99-4096-8f64-83557f661738)
-![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/0065bf5a-3843-4ffb-8df1-c6b031e2f8c4)
+![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/ec61088b-8750-414b-a992-7315aa10e121)
 ![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/dad510ee-89fe-4036-8a16-772e6460c442)
 ![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/263760c5-beae-43fc-9fb1-80c9992543dd)
 ![image](https://github.com/warriorBunny013/TASKIFY-MERN/assets/97738453/f03fce7b-4fae-4cc2-b0ac-7349ef0affe1)
