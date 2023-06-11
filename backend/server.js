@@ -7,14 +7,18 @@ dotenv.config();
 const app=express();
 //middlewares
 app.use(express.json());
-// app.use(express.urlencoded({extended:false}))
-app.use(cors());
+app.use(express.urlencoded({extended:false}))
+app.use(cors({
+  origin:["https://taskify-mern-frontend.vercel.app"],
+  methods:["POST","GET","PATCH","PUT","DELETE"],
+  credentials:true
+}));
 
 //mongodb connection
 const connection=async()=>{
     try{
       await mongoose.connect("mongodb+srv://mona23sonai:LmF3hfG2ux6JTFWy@taskify-uditi-das.tv9ihdy.mongodb.net/taskify-uditi-das?retryWrites=true&w=majority")
-      console.log("connected to MONGODB!!!")
+      console.log("connected to MONGODB")
     }catch(err){
       console.log("can't able to connect to MONGODB")
     }
@@ -31,9 +35,9 @@ app.get("/",(req,res)=>{
 })
 
 const PORT=process.env.PORT || 8800;
+
 app.listen(PORT,()=>{
     connection();
-
     console.log(`Sever is connected at http://localhost:${PORT}`);
 })
 
