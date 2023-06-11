@@ -1,5 +1,5 @@
 import axios from 'axios';
-const url = 'http://localhost:8800/api';
+const url = 'https://taskify-mern-backend.vercel.app/api';
 
 export const getTasks= async () => {
     return await axios.get(`${url}/get`).catch((err)=>console.log(err));
