@@ -1,6 +1,6 @@
 import axios from 'axios';
 axios.defaults.withCredentials=true;
-const url = 'https://taskify-mern-backend.vercel.app/api';
+const url = 'https://taskify-uditi-das-backend.onrender.com/api';
 
 export const getTasks= async () => {
     return await axios.get(`${url}/get`).catch((err)=>console.log(err));
