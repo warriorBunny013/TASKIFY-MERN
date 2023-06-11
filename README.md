@@ -21,7 +21,7 @@ Taskify is a MERN application that helps organizations manage tasks and distribu
 - MongoDB Atlas
 - ReactJS
 - Redux 
-(check out application implemented with redux and local storage:https://taskify-simpler-way-to-manage-tasks.vercel.app)
+(check out taskify previous version implemented with redux and local storage:https://taskify-simpler-way-to-manage-tasks.vercel.app)
 - MaterialUI
 - Tailwindcss
 - Realtime Cloud Firestore for storing chats
