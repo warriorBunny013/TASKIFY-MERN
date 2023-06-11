@@ -7,13 +7,13 @@ dotenv.config();
 const app=express();
 //middlewares
 app.use(express.json());
-app.use(express.urlencoded({extended:false}))
+// app.use(express.urlencoded({extended:false}))
 app.use(cors());
 
 //mongodb connection
 const connection=async()=>{
     try{
-      await mongoose.connect(process.env.MONGO_URL)
+      await mongoose.connect("mongodb+srv://mona23sonai:LmF3hfG2ux6JTFWy@taskify-uditi-das.tv9ihdy.mongodb.net/taskify-uditi-das?retryWrites=true&w=majority")
       console.log("connected to MONGODB!!!")
     }catch(err){
       console.log("can't able to connect to MONGODB")
@@ -31,9 +31,9 @@ app.get("/",(req,res)=>{
 })
 
 const PORT=process.env.PORT || 8800;
-
 app.listen(PORT,()=>{
     connection();
+
     console.log(`Sever is connected at http://localhost:${PORT}`);
 })
 
