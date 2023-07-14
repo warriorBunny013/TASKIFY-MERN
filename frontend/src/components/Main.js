@@ -10,8 +10,11 @@ import Modal from '@mui/material/Modal';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { addTodo } from '../Reducers/todoReducer';
 
-import { addTasks,getTasks } from '../Api/api';
-
+import { addTasks,getTasks,updateCheck,getCheckById} from '../Api/api';
+import LoadingIcons from 'react-loading-icons'
+// import { Bars } from 'react-loading-icons'
+import {updateTasksVisits,getTasksVisitspageById} from "../Api/api"
+import { updateProgress,getProgressById } from '../Api/api';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -31,6 +34,8 @@ function Main() {
   const [desc,setDesc]=React.useState('');
   const [date,setDate]=React.useState((new Date()).toString());
   const [cat,setCat]=React.useState('');
+  const [spinner,setSpinner]=React.useState(true);
+ 
   
   const [value, setValue] = React.useState('1');
   const handleChange = (event, newValue) => {
@@ -44,15 +49,43 @@ function Main() {
   // const dispatch=useDispatch();
   // const todo=useSelector((state)=>state.todo);
   //initialised a state for storing the task data comming from the database.
+  const progressclick=React.useRef(null)
   const [tasksdata, setTaskdata] = React.useState([]);
+  const [checkdata,setCheckdata]=React.useState([])
+  const [isprogress,setIsProgress]=React.useState([]);
+  const [iscomplete,setIsComplete]=React.useState([]);
+  const [countvisitor,setCountVisitor]=React.useState([]);
 
+ 
+  const allVisitors=async()=>{
+    let response=await updateTasksVisits()
+    setCountVisitor(response.data)
+}
+
+  const effectcan=React.useRef(false)
   React.useEffect(() => {
-    getAllTasks();
+    if(effectcan.current===false){
+      allVisitors()
+      getAllTasks();
+      getCheck();
+      getcheckProgress();
+    }
+
    },[]);
 
   const getAllTasks= async () => {
     let response = await getTasks();
     setTaskdata(response.data);
+    setSpinner(false)
+}
+const getCheck=async()=>{
+  let response=await getCheckById();
+  setIsComplete(response.data)
+
+}
+const getcheckProgress=async()=>{
+  let response=await getProgressById();
+  setIsProgress(response.data)
 }
   const handleSubmit=async(event)=>{
     const details={title:title,desc:desc,date:date,cat:cat};
@@ -69,21 +102,46 @@ function Main() {
     setCat("");
     
   }
+  
+
+
+
+const handleIsProgress=async()=>{
+  let response= await updateProgress();
+  const val=response.data.progress;
+  console.log("GET CHECK ID: ",{"progress":val})
+  setIsProgress(response.data)
+  // getcheckProgress();
+    console.log("PROGRESS CHECK IFITI",isprogress)
+}
+const handleIsComplete=async()=>{
+    let response=await updateCheck();
+    const val=response.data.complete;
+    console.log("GET CHECK ID: ",{"progress":val})
+    setIsComplete(response.data)
+    // getCheck();
+}
   return (
     <>
+    {/* <Bars /> */}
          <Box>
         <Box sx={{display:"flex",justifyContent: 'space-between',m:'2rem'}}>
         <Box sx={{ width: '100%', typography: 'body1' }}>
+
       <TabContext value={value}>
         <Box mb={2} sx={{border:1,zIndex:100,backgroundColor:"#fff",borderRadius: '8px', display:"flex",flexWrap:"wrap-reverse",justifyContent: 'space-between', borderBottom: 1, borderColor: 'divider' }}>
+         {/* <span>Visiors: {countvisitor.counter}</span> */}
+        {/* <div><span>Inprogress clicked: {isprogress.progress}</span><span>completed cliecked: {iscomplete.complete}</span></div> */}
           <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label={`In Progress-${tasksdata.filter(data=>data.mark===false).length}`} value="1" />
+            <Tab onClick={handleIsProgress}  label={`In Progress-${tasksdata.filter(data=>data.mark===false).length}`} value="1" />
             
-            <Tab label={`Completed-${tasksdata.filter(data=>data.mark===true).length}`} value="3" />
+            <Tab onClick={handleIsComplete} label={`Completed-${tasksdata.filter(data=>data.mark===true).length}`} value="3" />
 
           </TabList>
           <Button variant="contained"  onClick={handleOpen}><AddIcon/>Add Task</Button>
         </Box>
+        {spinner && <Box className="flex text-blue-700">Loading &nbsp;<LoadingIcons.ThreeDots className="mb-2 w-10" stroke="blue" /></Box>}
+            
       {
         tasksdata.map((t,index)=>{
           if(!t.mark){

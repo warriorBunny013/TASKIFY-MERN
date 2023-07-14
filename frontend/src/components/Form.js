@@ -13,7 +13,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from 'react-router-dom';
-
+import {updateVisits} from "../Api/api"
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -31,10 +31,12 @@ export default function SignIn() {
   const navigate=useNavigate();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password).then(
-      navigate('/dashboard')
+      async ()=>{
+        navigate('/dashboard')
+       await updateVisits();
+      } 
     ).catch((err)=>{
       console.log("CANNOT BE LOGIN USER DETAILS ARE WRONG");
       navigate('/');

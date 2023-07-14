@@ -5,6 +5,7 @@ import dotenv from "dotenv"
 import routes from "./routes/TaskRoutes.js"
 dotenv.config();
 const app=express();
+
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
@@ -17,7 +18,8 @@ app.use(cors({
 //mongodb connection
 const connection=async()=>{
     try{
-      await mongoose.connect("mongodb+srv://mona23sonai:LmF3hfG2ux6JTFWy@taskify-uditi-das.tv9ihdy.mongodb.net/taskify-uditi-das?retryWrites=true&w=majority")
+      await mongoose.connect(process.env.MONGO_URL)
+
       console.log("connected to MONGODB")
     }catch(err){
       console.log("can't able to connect to MONGODB")

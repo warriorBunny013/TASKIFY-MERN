@@ -2,7 +2,6 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -10,14 +9,13 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase";
-
+import {updateVisits,getVisitspageById} from "../Api/api"
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -37,8 +35,7 @@ export default function SignUp() {
 const [username,setUsername]=React.useState("");
 const [email,setEmail]=React.useState("");
 const [password,setPassword]=React.useState("");
-
-const handleSignUp = (event) => {
+const handleSignUp =  (event) => {
   event.preventDefault();
   createUserWithEmailAndPassword(auth, email, password)
     .then((authUser) => {
@@ -48,6 +45,8 @@ const handleSignUp = (event) => {
         })
       );
       navigate('/login')
+      // updateVisits();
+      // localStorage.setItem('visitor',JSON.stringify())
     })
     .catch((err) => {
       alert(err);

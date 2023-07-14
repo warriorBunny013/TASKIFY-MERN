@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../Reducers/authReducer';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
+import { getVisitspageById } from '../Api/api';
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -99,6 +100,18 @@ export default function Header() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const [visitdata,setVisitData]=React.useState(0)
+  React.useEffect(() => {
+    getAllVisits();
+   },[]);
+
+  const getAllVisits= async () => {
+    let response = await getVisitspageById();
+    setVisitData(response.data.counter);
+    
+}
+console.log("DATA",visitdata)
   return (<>
      
     <Box sx={{ display: 'flex'}}>
@@ -228,8 +241,7 @@ export default function Header() {
                     justifyContent: 'center',
                   }}
                 >
-                  {/* {text === 'Home'? <InboxIcon /> : <MailIcon />} */}
-                  {/* {/* {text === 'Team Members'? <InboxIcon /> : <MailIcon />} */}
+                  
                    <InboxIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Group chats" sx={{ opacity: open ? 1 : 0 }} />
@@ -245,7 +257,7 @@ export default function Header() {
         <span className='text-lg text-slate-600'>Welcome,{user==null?"":user.username}</span>
         <Button onClick={handleLogout} sx={{fontSize:"0.7rem",  backgroundColor:"#fff"}} variant="outlined">Logout</Button>
         </Box>
-           
+           {/* <span> Total Logged In Visitors:{visitdata} </span> */}
         {/* <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
