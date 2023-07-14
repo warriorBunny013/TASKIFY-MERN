@@ -15,7 +15,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import {updateVisits,getVisitspageById} from "../Api/api"
+// import {updateVisits,getVisitspageById} from "../Api/api"
 
 
 // TODO remove, this demo shouldn't need to reset the theme.

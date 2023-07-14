@@ -1,8 +1,8 @@
 
-import { Box,Container,Typography, getNativeSelectUtilityClasses} from '@mui/material';
-import React,{useEffect,useRef} from 'react';
+import { Box,Container,Typography} from '@mui/material';
+import React,{useRef} from 'react';
 import Header from './Header';
-import { getTasks,updateVisits } from '../Api/api';
+import { getTasks} from '../Api/api';
 // import React from 'react';
 import { getVisitspageById } from '../Api/api';
 import {
@@ -22,8 +22,8 @@ import LoadingIcons from 'react-loading-icons'
 // import { Pie, defaults } from 'react-chartjs-2'
 // import { Line } from 'react-chartjs-2';
 // import { useSelector } from 'react-redux';
-import { ConsoleView, browserName, browserVersion } from "react-device-detect";
-import {updateOverviewVisits,getOverviewVisitspageById} from "../Api/api"
+import { browserName, browserVersion } from "react-device-detect";
+import {updateOverviewVisits} from "../Api/api"
 import {Chart, ArcElement} from 'chart.js'
 Chart.register(ArcElement);
 ChartJS.register(
@@ -81,7 +81,7 @@ React.useEffect(() => {
    console.log("RUUN ED")
     if(effectRan.current===false){
         getAllTasks();
-        //  allVisitors()
+         allVisitors()
          getAllVisits();
     }
 

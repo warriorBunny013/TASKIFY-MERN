@@ -14,8 +14,8 @@ import Overview from './components/Overview';
 import { useEffect } from 'react';
 import GroupChat from './components/GroupChat'
 import Teams from './components/Teams';
-import { updateVisits } from './Api/api';
-import { AppContext } from "./context/contextApi";
+// import { updateVisits } from './Api/api';
+// import { AppContext } from "./context/contextApi";
 
 const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -31,11 +31,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 
 export default function App() {
-  const [countvisitor,setCountVisitor]=React.useState([]);
-  const allVisitors=async()=>{
-    let response=await updateVisits()
-    setCountVisitor(response.data)
-  }
+  // const [countvisitor,setCountVisitor]=React.useState([]);
+  // const allVisitors=async()=>{
+  //   let response=await updateVisits()
+  //   setCountVisitor(response.data)
+  // }
   const user = useSelector((state) => state.auth);
 
   const navigate=useNavigate();

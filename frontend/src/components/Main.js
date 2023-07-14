@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Container,Button,Box,Typography,TextField}from '@mui/material'; 
+import {Button,Box,Typography,TextField}from '@mui/material'; 
 import AddIcon from '@mui/icons-material/Add';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
@@ -13,7 +13,7 @@ import Modal from '@mui/material/Modal';
 import { addTasks,getTasks,updateCheck,getCheckById} from '../Api/api';
 import LoadingIcons from 'react-loading-icons'
 // import { Bars } from 'react-loading-icons'
-import {updateTasksVisits,getTasksVisitspageById} from "../Api/api"
+import {updateTasksVisits} from "../Api/api"
 import { updateProgress,getProgressById } from '../Api/api';
 const style = {
     position: 'absolute',
@@ -49,13 +49,14 @@ function Main() {
   // const dispatch=useDispatch();
   // const todo=useSelector((state)=>state.todo);
   //initialised a state for storing the task data comming from the database.
-  const progressclick=React.useRef(null)
+  // const progressclick=React.useRef(null)
   const [tasksdata, setTaskdata] = React.useState([]);
-  const [checkdata,setCheckdata]=React.useState([])
+  // const [checkdata,setCheckdata]=React.useState([])
   const [isprogress,setIsProgress]=React.useState([]);
   const [iscomplete,setIsComplete]=React.useState([]);
   const [countvisitor,setCountVisitor]=React.useState([]);
-
+console.log(iscomplete)
+console.log(countvisitor)
  
   const allVisitors=async()=>{
     let response=await updateTasksVisits()
