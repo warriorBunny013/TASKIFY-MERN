@@ -3,7 +3,6 @@ import { Box,Container,Typography} from '@mui/material';
 import React,{useRef} from 'react';
 import Header from './Header';
 import { getTasks} from '../Api/api';
-// import React from 'react';
 import { getVisitspageById } from '../Api/api';
 import {
   Chart as ChartJS,
@@ -17,15 +16,9 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-// import faker from 'faker';
 import LoadingIcons from 'react-loading-icons'
-// import { Pie, defaults } from 'react-chartjs-2'
-// import { Line } from 'react-chartjs-2';
-// import { useSelector } from 'react-redux';
 import { browserName, browserVersion } from "react-device-detect";
 import {updateOverviewVisits} from "../Api/api"
-// import {Chart as ChartJS} from 'chart.js'
-// Chart.register(ArcElement);
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -50,16 +43,11 @@ ChartJS.register(
   };  
  
 
-// defaults.global.tooltips.enabled = false
-// defaults.global.legend.position = 'bottom'
 const Overview = () => {
     const [tasksdata, setTaskdata] = React.useState([]);
     const [spinner,setSpinner]=React.useState(true);
     const effectRan=useRef(false)
-//   const todo=useSelector((state)=>state.todo);
-//   const countTodos=todo.filter(i=>i).length;
-//   const countCompleted=todo.filter(i=>i.mark===true).length
-//   const countNotCompleted=todo.filter(i=>i.mark===false).length
+
 const [countvisitor,setCountVisitor]=React.useState([]);
 let currMonth = new Date().getMonth();
   console.log("CURRENT MONTH:",currMonth);
@@ -165,64 +153,9 @@ const data = {
             </Box>
           
             </Box>
-            {/* <div className='flex gap-3'>
-            <span className='text-red-500'>Browser of user : {browserName}  {browserVersion}</span> 
-            </div> */}
+            
             <div>
-      {/* <Pie
-        data={{
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-          datasets: [
-            {
-              label: '# of votes',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-              ],
-              hoverOffset: 4,
-              borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-              ],
-              borderWidth: 1,
-            },
-            // {
-            //   label: 'Quantity',
-            //   data: [47, 52, 67, 58, 9, 50],
-            //   backgroundColor: 'orange',
-            //   borderColor: 'red',
-            // },
-          ],
-        }}
-        height={300}
-        width={400}
-        // options={{
-        //   maintainAspectRatio: false,
-        //   scales: {
-        //     yAxes: [
-        //       {
-        //         ticks: {
-        //           beginAtZero: true,
-        //         },
-        //       },
-        //     ],
-        //   },
-        //   legend: {
-        //     labels: {
-        //       fontSize: 25,
-        //     },
-        //   },
-        // }}
-      /> */}
+     
 
 <Line options={options} data={data} />
     </div>
