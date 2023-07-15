@@ -30,7 +30,7 @@ ChartJS.register(
     Legend
   );
   export const options = {
-    responsive: false,
+    responsive: true,
     plugins: {
       legend: {
         position: 'top',
@@ -61,7 +61,7 @@ const [visitdata,setVisitData]=React.useState(0)
 
 const getAllVisits= async () => {
   let response = await getVisitspageById();
-  setVisitData(response.data.counter);
+  setVisitData(response?.data?.counter);
   
 }
 console.log("DATA",visitdata)
@@ -77,17 +77,17 @@ React.useEffect(() => {
 
   const getAllTasks= async () => {
     let response = await getTasks();
-    setTaskdata(response.data);
+    setTaskdata(response?.data);
     setSpinner(false)
 }
 
 const allVisitors=async()=>{
     let response=await updateOverviewVisits()
-    setCountVisitor(response.data)
+    setCountVisitor(response?.data)
 }
 
 console.log(`${browserName} ${browserVersion}`);
-console.log("VISITORS",countvisitor)
+// console.log("VISITORS",countvisitor)
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','Aug','Sept','Oct','Nov','Dec'];
 // const [datamonth,setDatamonth]=React.useState(currMonth);
 const dataArray = Array(12).fill(0);
@@ -148,7 +148,7 @@ const data = {
                 <Box className=" text-lg text-slate-500">non-active: <span className='text-lg font-bold'>{23-visitdata}</span></Box> 
             </Box>
             <Box className="border-2 w-64 px-10 py-5">
-                <Box className="pt-3 text-md text-slate-500">Visitors: <span>{countvisitor.counter}</span></Box>
+                <Box className="pt-3 text-md text-slate-500">Visitors: <span>{countvisitor?.counter}</span></Box>
                 <Box className="text-md text-slate-500">Browser: <span className='text-sm font-bold'> {browserName}  {browserVersion}</span></Box>
             </Box>
           

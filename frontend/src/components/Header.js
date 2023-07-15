@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../Reducers/authReducer';
 import { signOut } from 'firebase/auth';
 import { auth } from '../firebase';
-import { getVisitspageById } from '../Api/api';
+// import { getVisitspageById } from '../Api/api';
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -101,17 +101,17 @@ export default function Header() {
     setOpen(false);
   };
 
-  const [visitdata,setVisitData]=React.useState(0)
+  // const [visitdata,setVisitData]=React.useState(0)
   React.useEffect(() => {
-    getAllVisits();
+    // getAllVisits();
    },[]);
 
-  const getAllVisits= async () => {
-    let response = await getVisitspageById();
-    setVisitData(response.data.counter);
+//   const getAllVisits= async () => {
+//     let response = await getVisitspageById();
+//     setVisitData(response.data.counter);
     
-}
-console.log("DATA",visitdata)
+// }
+// console.log("DATA",visitdata)
   return (<>
      
     <Box sx={{ display: 'flex'}}>

@@ -12,7 +12,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-import {updateUserVisits} from "../Api/api"
+// import {updateUserVisits} from "../Api/api"
 
 
 
@@ -33,20 +33,20 @@ const rows = [
 
 
 export default function Teams() {
-  const effectRan=React.useRef(false)
-  const [countvisitor,setCountVisitor]=React.useState([]);
+  // const effectRan=React.useRef(false)
+  // const [countvisitor,setCountVisitor]=React.useState([]);
 
-  React.useEffect(() => {
-    console.log("RUUN USERS")
-     if(effectRan.current===false){
-          allVisitors()
-     }
+  // React.useEffect(() => {
+  //   console.log("RUUN USERS")
+  //    if(effectRan.current===false){
+  //         allVisitors()
+  //    }
  
-    },[]);
-    const allVisitors=async()=>{
-      let response=await updateUserVisits()
-      setCountVisitor(response.data)
-  }
+  //   },[]);
+  //   const allVisitors=async()=>{
+  //     let response=await updateUserVisits()
+  //     setCountVisitor(response.data)
+  // }
 
   return (<Box sx={{ display: 'flex', flexDirection: 'column',gap:2}}>
     <Box sx={{ display: 'flex', flexDirection: 'column',gap:2}} >
@@ -72,7 +72,7 @@ export default function Teams() {
        
         </Container>
         <Box sx={{ display: 'flex', justifyContent:"flex-end",gap:2}}>
-        <span>Visiors: {countvisitor.counter}</span>
+        {/* <span>Visiors: {countvisitor.counter}</span> */}
         <TextField
           label="Search.."
           id="filled-size-small"
