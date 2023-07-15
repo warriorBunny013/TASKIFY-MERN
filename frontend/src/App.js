@@ -77,7 +77,7 @@ export default function App() {
       <Box component="main" sx={{ flexGrow: 1, p: 3}}>
         <DrawerHeader />
         {/* Todolist main content routing here */}
-           <Routes basename="">
+           <Routes basename="/">
           <Route exact path="/" element={<Landing/>}/>
           {user.user && <Route path="/dashboard" element={<Overview/>}/>}
           {user.user && <Route path="/dashboard/tasks" element={<> <Header/><Container maxWidth="md"><Main/></Container></>}/>}
