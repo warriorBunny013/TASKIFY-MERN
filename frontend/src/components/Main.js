@@ -122,6 +122,7 @@ const handleIsComplete=async()=>{
     setIsComplete(response.data)
     // getCheck();
 }
+// let keyprop=Math.floor((Math.random() * 100) + 1);
   return (
     <>
     {/* <Bars /> */}
@@ -133,7 +134,7 @@ const handleIsComplete=async()=>{
         <Box mb={2} sx={{border:1,zIndex:100,backgroundColor:"#fff",borderRadius: '8px', display:"flex",flexWrap:"wrap-reverse",justifyContent: 'space-between', borderBottom: 1, borderColor: 'divider' }}>
          {/* <span>Visiors: {countvisitor.counter}</span> */}
         {/* <div><span>Inprogress clicked: {isprogress.progress}</span><span>completed cliecked: {iscomplete.complete}</span></div> */}
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
+          <TabList key={359} onChange={handleChange} aria-label="lab API tabs example">
             <Tab onClick={handleIsProgress}  label={`In Progress-${tasksdata.filter(data=>data.mark===false).length}`} value="1" />
             
             <Tab onClick={handleIsComplete} label={`Completed-${tasksdata.filter(data=>data.mark===true).length}`} value="3" />
@@ -146,9 +147,9 @@ const handleIsComplete=async()=>{
       {
         tasksdata.map((t,index)=>{
           if(!t.mark){
-            return <TabPanel value="1"> <Cards  sx={{marginBottom:"2rem"}} key={index} createdAt={t.createdAt} setTaskdata={setTaskdata} tmark={t.mark}  tid={t._id} ttitle={t.title} tdesc={t.desc} tdate={t.date} tcat={t.cat}/></TabPanel>
+            return <TabPanel key={index} value="1"> <Cards  sx={{marginBottom:"2rem"}} key={index} createdAt={t.createdAt} setTaskdata={setTaskdata} tmark={t.mark}  tid={t._id} ttitle={t.title} tdesc={t.desc} tdate={t.date} tcat={t.cat}/></TabPanel>
           }else{
-            return <TabPanel value="3"> <Cards  sx={{marginBottom:"2rem"}} key={index} createdAt={t.createdAt} setTaskdata={setTaskdata} tmark={t.mark}  tid={t._id} ttitle={t.title} tdesc={t.desc} tdate={t.date} tcat={t.cat}/></TabPanel>
+            return <TabPanel key={index} value="3"> <Cards  sx={{marginBottom:"2rem"}} key={index} createdAt={t.createdAt} setTaskdata={setTaskdata} tmark={t.mark}  tid={t._id} ttitle={t.title} tdesc={t.desc} tdate={t.date} tcat={t.cat}/></TabPanel>
           }
         })
       }

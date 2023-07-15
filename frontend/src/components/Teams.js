@@ -98,8 +98,8 @@ export default function Teams() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
+          {rows.map((row,i) => (
+            <TableRow key={i}>
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>

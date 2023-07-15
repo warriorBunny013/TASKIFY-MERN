@@ -124,7 +124,7 @@ const Cards = ({createdAt,setTaskdata,tmark,tid,ttitle,tdesc,tdate,tcat}) => {
   return (<>
         
         <Box className="border-2" sx={{ display: 'flex', flexDirection: 'column' }}>
-        <CardContent maxWidth="xl">
+        <CardContent maxwidth="xl">
           <Box className="flex justify-between" >
           <Box sx={{display:"flex",flexWrap:"wrap"}}>
           <Typography sx={{mr:3}} mb={2} component="div" variant="h5">
@@ -177,8 +177,11 @@ const Cards = ({createdAt,setTaskdata,tmark,tid,ttitle,tdesc,tdate,tcat}) => {
               <TextField 
           id="filled-size-small"
           variant="outlined"
-          defaultValue="Small"
-          size="small" multiline  label="Type your message here.." fullWidth="true" value={newMssg} onChange={(e)=>setNewMssg(e.target.value)}/>
+          required
+          // defaultValue="Small"
+          // error={errorMessages.myErrorMessage.length > 0}
+  //  helperText={errorMessages.myErrorMessage}
+          size="small" multiline  label="Type your message here.." fullWidth value={newMssg} onChange={(e)=>setNewMssg(e.target.value)}/>
           <Box>
           <Button  type="submit" variant="contained">Send</Button>
           </Box>
