@@ -144,11 +144,11 @@ const data = {
             </Box>
             <Box className="border-2 w-60 px-10 py-5">
                 <Typography variant='h6'>Members: <span>0</span></Typography>
-                <Box className="pt-3 text-lg text-slate-500">active: <span className='text-lg font-bold'>{visitdata}</span></Box>
+                <Box className="pt-3 text-lg text-slate-500">active: <span className='text-lg font-bold'>{visitdata?visitdata:'0'}</span></Box>
                 <Box className=" text-lg text-slate-500">non-active: <span className='text-lg font-bold'>0</span></Box> 
             </Box>
             <Box className="border-2 w-64 px-10 py-5">
-                {/* <Box className="pt-3 text-md text-slate-500">Visitors: <span>{countvisitor?.counter}</span></Box> */}
+                <Box className="pt-3 text-md text-slate-500">Visitors: <span>{countvisitor?.counter?countvisitor?.counter:'0'}</span></Box>
                 <Box className="text-md text-slate-500">Browser: <span className='text-sm font-bold'> {browserName}  {browserVersion}</span></Box>
             </Box>
           
