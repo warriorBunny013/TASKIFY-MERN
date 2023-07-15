@@ -16,7 +16,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import LoadingIcons from 'react-loading-icons'
+// import LoadingIcons from 'react-loading-icons'
 import { browserName, browserVersion } from "react-device-detect";
 import {updateOverviewVisits} from "../Api/api"
 ChartJS.register(
@@ -45,7 +45,7 @@ ChartJS.register(
 
 const Overview = () => {
     const [tasksdata, setTaskdata] = React.useState([]);
-    const [spinner,setSpinner]=React.useState(true);
+    // const [spinner,setSpinner]=React.useState(true);
     const effectRan=useRef(false)
 
 const [countvisitor,setCountVisitor]=React.useState([]);
@@ -78,7 +78,7 @@ React.useEffect(() => {
   const getAllTasks= async () => {
     let response = await getTasks();
     setTaskdata(response?.data);
-    setSpinner(false)
+    // setSpinner(false)
 }
 
 const allVisitors=async()=>{
@@ -132,7 +132,7 @@ const data = {
   return (<>
         <Header/>
          <Container maxWidth="md">
-         {spinner && <Box className="flex text-blue-700">Loading &nbsp;<LoadingIcons.ThreeDots className="mb-2 w-10" stroke="blue" /></Box>}
+         {/* {spinner && <Box className="flex text-blue-700">Loading &nbsp;<LoadingIcons.ThreeDots className="mb-2 w-10" stroke="blue" /></Box>} */}
             <Box className="flex justify-between">
             
             
