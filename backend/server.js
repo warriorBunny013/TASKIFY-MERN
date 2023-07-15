@@ -10,7 +10,7 @@ const app=express();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 app.use(cors({
-  origin:["https://taskify-uditi-das-web.onrender.com"],
+  origin:["https://taskify-mern-frontend.vercel.app"],
   methods:["POST","GET","PATCH","PUT","DELETE"],
   credentials:true
 }));

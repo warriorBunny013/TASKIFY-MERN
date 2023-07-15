@@ -24,8 +24,8 @@ import LoadingIcons from 'react-loading-icons'
 // import { useSelector } from 'react-redux';
 import { browserName, browserVersion } from "react-device-detect";
 import {updateOverviewVisits} from "../Api/api"
-import {Chart, ArcElement} from 'chart.js'
-Chart.register(ArcElement);
+// import {Chart as ChartJS} from 'chart.js'
+// Chart.register(ArcElement);
 ChartJS.register(
     CategoryScale,
     LinearScale,
