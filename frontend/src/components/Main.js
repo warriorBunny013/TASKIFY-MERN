@@ -88,7 +88,9 @@ const getcheckProgress=async()=>{
   let response=await getProgressById();
   setIsProgress(response.data)
 }
+const [isSubmited,setIsSubmited]=React.useState(false);
   const handleSubmit=async(event)=>{
+    setIsSubmited(true);
     const details={title:title,desc:desc,date:date,cat:cat};
      console.log("ADD ELEMENTS CHECKING::",details)
    
@@ -181,7 +183,7 @@ const handleIsComplete=async()=>{
           
           </Box>
           <Box mt={2} sx={{display:"flex",justifyContent:"flex-end"}}>
-          <Button disabled={!title || !desc || !date || !cat}  onClick={handleSubmit} variant="contained">Submit</Button>
+          <Button disabled={!title || !desc || !date || !cat || isSubmited }  onClick={handleSubmit} variant="contained">Submit</Button>
           </Box>
         
         </Box>
