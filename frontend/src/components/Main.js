@@ -42,7 +42,10 @@ function Main() {
     setValue(newValue);
   };
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () =>{
+    setOpen(true);
+    setIsSubmited(false);
+  } 
   const handleClose = () => setOpen(false);
 
 
@@ -55,6 +58,7 @@ function Main() {
   const [isprogress,setIsProgress]=React.useState([]);
   const [iscomplete,setIsComplete]=React.useState([]);
   const [countvisitor,setCountVisitor]=React.useState([]);
+  const [isSubmited,setIsSubmited]=React.useState(false);
 console.log(iscomplete)
 console.log(countvisitor)
  
@@ -88,7 +92,7 @@ const getcheckProgress=async()=>{
   let response=await getProgressById();
   setIsProgress(response.data)
 }
-const [isSubmited,setIsSubmited]=React.useState(false);
+
   const handleSubmit=async(event)=>{
     setIsSubmited(true);
     const details={title:title,desc:desc,date:date,cat:cat};
